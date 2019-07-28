@@ -2,7 +2,7 @@ import scraperwiki
 html = scraperwiki.scrape('https://inmo.ie/6022')
 import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
-tds = root.cssselect('tr') # get all the <td> tags
+trs = root.cssselect('tr') # get all the <td> tags
 for tr in trs:
     print tr.text_content() # just the text inside the HTML tag including inside children, without markup
 for tr in trs:
