@@ -4,9 +4,9 @@ import lxml.html
 root = lxml.html.fromstring(html) # turn our HTML into an lxml object
 tds = root.cssselect('td') # get all the <td> tags
 for td in tds:
-    print td.tag() # just the text inside the HTML tag including inside children, without markup
+    print td.attrib['href'] # just the text inside the HTML tag including inside children, without markup
 for td in tds:
-    record = { "td" : td.tag } # column name and value
+    record = { "td" : td.attrib['href'] } # column name and value
     try:
         scraperwiki.sqlite.save(["td"], record) # save the records one by one
     except:
